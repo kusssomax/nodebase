@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
 import { requireAuth } from "@/lib/auth-utils";
 import { caller } from "@/trpc/server";
+import LogoutButton from "@/features/auth/components/LogoutButton";
 
 const Page = async () => {
   await requireAuth();
@@ -9,8 +10,9 @@ const Page = async () => {
   const data = await caller.getUsers();
 
   return (
-    <div className="min-h-screen min-w-screen flex items-center justify-center">
+    <div className="min-h-screen min-w-screen flex items-center flex-col justify-center">
       {JSON.stringify(data)}
+      <LogoutButton />
     </div>
   )
 }

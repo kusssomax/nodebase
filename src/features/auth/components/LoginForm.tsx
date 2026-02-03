@@ -78,17 +78,19 @@ const LoginForm = () => {
                             <Button
                                 type="button"
                                 variant="outline"
-                                className="w-full"
+                                className="w-full flex items-center gap-4"
                                 disabled={isPending}
                             >
+                                <Image src="/logos/github.svg" alt="GitHub" width={20} height={20} />
                                 Continue with GitHub
                             </Button>
                             <Button
                                 type="button"
                                 variant="outline"
-                                className="w-full"
+                                className="w-full flex items-center gap-4"
                                 disabled={isPending}
                             >
+                                <Image src="/logos/google.svg" alt="Google" width={20} height={20} />
                                 Continue with Google
                             </Button>
                         </div>
