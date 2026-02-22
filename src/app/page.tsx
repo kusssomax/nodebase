@@ -6,6 +6,7 @@ import { caller } from "@/trpc/server";
 import LogoutButton from "@/features/auth/components/LogoutButton";
 import { useTRPC } from "@/trpc/client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 const Page = () => {
 
@@ -20,7 +21,14 @@ const Page = () => {
     }
   }));
 
-  const testAi = useMutation(trpc.testAi.mutationOptions());
+  const testAi = useMutation(trpc.testAi.mutationOptions({
+    onSuccess: () => {
+      toast.success("job is queued");
+    }, 
+    onError: (error) => {
+      toast.error(error.message);
+    }
+  }));
 
   return (
     <div className="min-h-screen min-w-screen flex items-center flex-col justify-center">
